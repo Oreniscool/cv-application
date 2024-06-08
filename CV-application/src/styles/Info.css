@@ -1,11 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .info {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 50%;
   justify-content: space-evenly;
 }
 label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  font-size: 1.3rem;
+}
+label > input,
+label > textarea {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: 2px gray solid;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  outline: transparent;
+  transition: border 300ms ease-in-out;
+}
+
+label > input:focus {
+  border-color: purple;
+}
+
+label > textarea {
+  width: 60%;
+}
+
+label > input {
+  width: 40%;
 }

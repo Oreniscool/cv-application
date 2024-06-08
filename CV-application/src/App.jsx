@@ -1,20 +1,30 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import classNames from 'classnames';
 import BasicInfo from './components/BasicInfo';
 import ContactInfo from './components/ContactInfo';
 import EducationInfo from './components/EducationInfo';
 import WorkExp from './components/WorkExp';
+import CVTemplate from './components/CVTemplate';
 import './App.css';
 import './styles/Info.css';
 
 function App() {
+  const [cvClasses, setCvClasses] = useState(classNames('hidden', 'cv'));
   const [person, setPerson] = useState({
     basicInfo: {},
     contactInfo: {},
     educationInfo: {},
     workExp: {},
   });
-  console.log(person);
+  function handleBack() {
+    setCvClasses(classNames('hidden', 'cv'));
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(person);
+    setCvClasses('cv');
+  }
   function setBasicInfo(newBasicInfo) {
     setPerson({ ...person, basicInfo: newBasicInfo });
   }
@@ -29,7 +39,7 @@ function App() {
   }
   return (
     <>
-      <span className="left">
+      <form className="left" onSubmit={handleSubmit}>
         <BasicInfo
           basicInfo={person.basicInfo}
           setBasicInfo={setBasicInfo}
@@ -43,8 +53,13 @@ function App() {
           setEducationInfo={setEducationInfo}
         ></EducationInfo>
         <WorkExp workExp={person.workExp} setWorkExp={setWorkExp}></WorkExp>
-      </span>
-      <span className="right"></span>
+        <input type="submit" value="Submit CV" className="submit" />
+      </form>
+      <CVTemplate
+        person={person}
+        classes={cvClasses}
+        handleBack={handleBack}
+      ></CVTemplate>
     </>
   );
 }

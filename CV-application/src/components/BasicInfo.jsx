@@ -17,7 +17,7 @@ function BasicInfo({ basicInfo, setBasicInfo }) {
   }
   return (
     <div className="info">
-      {'Basic info'}
+      <h2>{'Basic information'}</h2>
       <Input
         label="First name"
         value={basicInfo.firstName == null ? '' : basicInfo.firstName}

@@ -3,20 +3,20 @@ import { Input } from './Inputs';
 
 export default function WorkExp({ workExp, setWorkExp }) {
   function handlePositionChange(e) {
-    setWorkExp({ ...workExp, organisation: e.target.value });
+    setWorkExp({ ...workExp, position: e.target.value });
   }
   function handleWorkplaceChange(e) {
-    setWorkExp({ ...workExp, degree: e.target.value });
+    setWorkExp({ ...workExp, workplace: e.target.value });
   }
   function handleStartingYearChange(e) {
     setWorkExp({ ...workExp, startingYear: e.target.value });
   }
   function handleResponsibilitiesChange(e) {
-    setWorkExp({ ...workExp, gpa: e.target.value });
+    setWorkExp({ ...workExp, responsibilities: e.target.value });
   }
   return (
     <div className="info">
-      {'Work Experience'}
+      <h2>{'Work Experience'}</h2>
       <Input
         label="Title/Position"
         value={workExp.position == null ? '' : workExp.position}
@@ -31,6 +31,7 @@ export default function WorkExp({ workExp, setWorkExp }) {
         label="Starting Year"
         value={workExp.startingYear == null ? '' : workExp.startingYear}
         onChange={handleStartingYearChange}
+        type="date"
       ></Input>
       <Input
         label="Job responsibilities"

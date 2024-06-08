@@ -16,7 +16,7 @@ export default function EducationInfo({ educationInfo, setEducationInfo }) {
   }
   return (
     <div className="info">
-      {'Education info'}
+      <h2>{'Education info'}</h2>
       <Input
         label="University/Institution"
         value={
@@ -35,11 +35,15 @@ export default function EducationInfo({ educationInfo, setEducationInfo }) {
           educationInfo.startingYear == null ? '' : educationInfo.startingYear
         }
         onChange={handleStartingYearChange}
+        type="date"
       ></Input>
       <Input
         label="GPA"
         value={educationInfo.gpa == null ? '' : educationInfo.gpa}
         onChange={handleGpaChange}
+        type="number"
+        min="0"
+        max="10"
       ></Input>
     </div>
   );
